@@ -41,12 +41,20 @@ function collision(head, array){
 }
 
 function draw(){
+    context.clearRect(0, 0, 400, 400)
+    
+    context.fillStyle = "red"
+    context.font = "30px Arial"
+    context.fillText(score, 2*box, 1.6*box)
+    
+    context.fillStyle = seconds < 11 ? "red" : "green"
+    context.font = "20px Arial"
+    context.fillText(`Temps: ${seconds > 9 ? "" : "0"}${seconds}s`, 14*box, 1.6*box)
+    
     if (gameOver) {
         clearInterval(game);
         return;
     }
-
-    context.clearRect(0, 0, 400, 400)
     
     for(let i = 0; i < snake.length; i++){
         context.fillStyle = (i == 0) ? "green" : "lightgreen"
@@ -93,7 +101,7 @@ function draw(){
     context.font = "30px Arial"
     context.fillText(score, 2*box, 1.6*box)
     
-    context.fillStyle = seconds < 11 ? "red" : "white"
+    context.fillStyle = seconds < 11 ? "red" : "green"
     context.font = "20px Arial"
     context.fillText(`Temps: ${seconds > 9 ? "" : "0"}${seconds}s`, 14*box, 1.6*box)
 }
