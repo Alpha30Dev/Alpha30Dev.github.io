@@ -77,8 +77,8 @@ function draw(){
     if(snakeX == food.x && snakeY == food.y){
         score++;
         food = {
-            x: Math.floor(Math.random() * 15 + 1) * box,
-            y: Math.floor(Math.random() * 15 + 1) * box
+            x: Math.floor(Math.random() * (400/box - 2)) * box,
+            y: Math.floor(Math.random() * (400/box - 2)) * box
         }
     } else {
         snake.pop()
@@ -88,8 +88,20 @@ function draw(){
         x: snakeX,
         y: snakeY
     }
+
+    if(snakeX < 0) {
+        newHead.x = 400 - box;
+    } else if(snakeX > 400) {
+        newHead.x = 0;
+    }
+
+    if(snakeY < 0) {
+        newHead.y = 400 - box;
+    } else if(snakeY > 400) {
+        newHead.y = 0;
+    }
     
-    if(snakeX < 0 || snakeX > 19*box || snakeY < 0 || snakeY > 19*box || collision(newHead, snake) || seconds === 0){
+    if(collision(newHead, snake) || seconds === 0){
         clearInterval(game);
         gameOver = true;
         return;
@@ -114,5 +126,5 @@ function startTimer() {
     }, 1000);
 }
 
-let game = setInterval(draw, 100);
+let game = setInterval(draw, 75);
 startTimer();
