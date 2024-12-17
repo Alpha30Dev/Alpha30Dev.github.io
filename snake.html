@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/snake.css">
+    <script src="/scripts/snake.js" defer></script>
+    <link rel="stylesheet" href="styles/switch.css">
+</head>
+<body>
+    <main>
+        <div class="console-switch">
+            <div class="left-controller">
+                <div class="minus-button">
+                    <img src="./icons/dash-lg.svg" alt="minus button">
+                </div>
+                <div class="joystick">
+                    <div id="circle-joy"></div>
+                </div>
+                <div class="interaction-button">
+                    <img class="interact" src="./icons/caret-up-fill.svg" alt="">
+                    <div class="left-right">
+                        <img class="interact" src="./icons/caret-left-fill.svg" alt="">
+                        <img class="interact" src="./icons/caret-right-fill.svg" alt="">
+                    </div>
+                    <img class="interact" src="./icons/caret-down-fill.svg" alt="">
+                </div>
+                <div class="left-home">
+                    <div id="circle"></div>
+                </div>
+            </div>
+            <div class="screen">
+                <div class="top-screen">
+                    <span>Nom du joueur</span>
+                    <span>Time : 00:36</span>
+                    <span>Score : 2500</span>
+                </div>
+                <div class="display">
+                    <canvas width="400" height="400"></canvas>
+                </div>
+            </div>
+            <div class="right-controller">
+                <div class="plus-button">
+                    <img src="./icons/plus-lg.svg" alt="plus button">
+                </div>
+                <div class="interaction-button">
+                    <div class="interact" id="up">
+                        <span>X</span>
+                    </div>
+                    <div class="left-right">
+                        <span class="interact" id="left">Y</span>
+                        <span class="interact" id="right">A</span>
+                    </div>
+                    <div class="interact" id="down">
+                        <span>B</span>
+                    </div>
+                </div>
+                <div class="joystick" id="left-joystick">
+                    <div id="circle-joy"></div>
+                </div>
+                <div class="right-home">
+                    <div id="circle">
+                        <img src="./icons/house.svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
