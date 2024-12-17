@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="wordle.js" defer></script>
+    <link rel="stylesheet" href="wordle.css">
+    <title>Wordle</title>
+</head>
+<body>
+    <div>
+        <h2 id="current-player"></h2>
+        <p id="count-down">Time: 1:00</p>
+    </div>
+    <div id="cs-game-container">
+        <p id="cs-clue-p"></p>
+        <p id="cs-messages"></p>
+        <div class="cs-word-container" id="cs-guess-1">
+            <form id="cs-input-form" onsubmit="formSubmit(event)">
+                <label class="cs-labels" for="cs-1-letter">Premier lettre</label>
+                <input class="cs-display-box cs-inputs" id="cs-1-letter" type="text" maxlength="1" required disabled="true">
+                <label class="cs-labels" for="cs-2-letter">Deuxieme lettre</label>
+                <input class="cs-display-box cs-inputs" id="cs-2-letter" type="text" maxlength="1" required disabled="true">
+                <label class="cs-labels" for="cs-3-letter">Troisieme lettre</label>
+                <input class="cs-display-box cs-inputs" id="cs-3-letter" type="text" maxlength="1" required disabled="true">
+                <label class="cs-labels" for="cs-4-letter">Quatrieme lettre</label>
+                <input class="cs-display-box cs-inputs" id="cs-4-letter" type="text" maxlength="1" required disabled="true">
+                <label class="cs-labels" for="cs-5-letter">Cinqieme lettre</label>
+                <input class="cs-display-box cs-inputs" id="cs-5-letter" type="text" maxlength="1" required disabled="true">
+                <input type="submit" value="Soumettre">
+            </form>
+        </div>
+        <div class="cs-word-container" id="cs-guess-2">
+            <p class="cs-display-box-p"></p>
+            <p class="cs-display-box-p"></p>
+            <p class="cs-display-box-p"></p>
+            <p class="cs-display-box-p"></p>
+            <p class="cs-display-box-p"></p>
+        </div>
+        <div class="cs-word-container" id="cs-guess-3">
+            <p class="cs-display-box-p"></p>
+            <p class="cs-display-box-p"></p>
+            <p class="cs-display-box-p"></p>
+            <p class="cs-display-box-p"></p>
+            <p class="cs-display-box-p"></p>
+        </div>
+        <div class="cs-word-container" id="cs-guess-4">
+            <p class="cs-display-box-p"></p>
+            <p class="cs-display-box-p"></p>
+            <p class="cs-display-box-p"></p>
+            <p class="cs-display-box-p"></p>
+            <p class="cs-display-box-p"></p>
+        </div>
+        <div class="cs-word-container" id="cs-guess-5">
+            <p class="cs-display-box-p"></p>
+            <p class="cs-display-box-p"></p>
+            <p class="cs-display-box-p"></p>
+            <p class="cs-display-box-p"></p>
+            <p class="cs-display-box-p"></p>
+        </div>
+        <div class="cs-word-container" id="cs-guess-6">
+            <p class="cs-display-box-p"></p>
+            <p class="cs-display-box-p"></p>
+            <p class="cs-display-box-p"></p>
+            <p class="cs-display-box-p"></p>
+            <p class="cs-display-box-p"></p>
+        </div>
+        <button id="cs-start-button">Cliquer pour commencer le jeu</button>
+    </div>
+</body>
+</html>
