@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendu</title>
+    <link rel="stylesheet" href="pendu.css">
+    <script src="pendu.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo-left">
+                <img src="elements/logo-image.png" alt="Logo Gauche">
+            </div>
+            <div class="logo-center">
+                <img src="elements/logo-titre.png" alt="Logo Centre">
+            </div>
+        </nav>
+    </header>
+    <main>
+            <div class="console-switch">
+                <div class="left-controller">
+                    <div class="minus-button">
+                        <img src="./icons/dash-lg.svg" alt="minus button">
+                    </div>
+                    <div class="joystick"></div>
+                    <div class="interaction-button">
+                        <div class="up"></div>
+                        <div class="right"></div>
+                        <div class="down"></div>
+                        <div class="left"></div>
+                    </div>
+                    <div class="home"></div>
+                </div>
+                <div class="screen">
+                    <div class="display"></div>
+                    <div class="pendu-container">
+                        <h1>Jeu du Pendu</h1>
+                        <div id="count-down">Temps: 60s</div> 
+                        <div class="hangman-container">
+                        <img id="hangmanImage" src="elements/hangman1.png" alt="Bonhomme Pendu" />
+                        </div>
+                        <div id="wordDisplay"></div>
+                        <div id="guesses"></div>
+                        <div id="attempts">Essais restants: <span id="attemptsCount"></span></div>
+                        <div class="input-container"> 
+                            <input type="text" id="letterInput" maxlength="1" placeholder="Devinez une lettre">
+                            <button id="guessButton">Deviner</button>
+                        </div>
+                        <div id="message"></div>
+                    </div>
+                </div>
+                <div class="right-controller">
+                    <div class="plus-button">
+                        <img src="./icons/plus-lg.svg" alt="plus button">
+                    </div>
+                    <div class="interaction-button">
+                        <div class="up"></div>
+                        <div class="right"></div>
+                        <div class="down"></div>
+                        <div class="left"></div>
+                    </div>
+                    <div class="joystick"></div>
+                    <div class="home"></div>
+                </div>
+            </div>
+    </main>
+    <footer>
+        <p>Règles du jeu</p>
+    </footer>
+</body>
+</html>
