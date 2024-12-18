@@ -19,6 +19,10 @@ let d
 let seconds = 59
 let gameOver = false
 let lastDirection = null
+let lastFoodTime = Date.now();
+
+const scoreDisplay = document.querySelector('.top-screen span:nth-child(3)');
+const timeDisplay = document.querySelector('.top-screen span:nth-child(2)');
 
 document.addEventListener("keydown", direction);
 
@@ -47,13 +51,8 @@ function collision(head, array){
 function draw(){
     context.clearRect(0, 0, canvas.width, canvas.height)
     
-    context.fillStyle = "red"
-    context.font = "30px Arial"
-    context.fillText(score, 2*box, 1.6*box)
-    
-    context.fillStyle = seconds < 11 ? "red" : "green"
-    context.font = "20px Arial"
-    context.fillText(`Temps: ${seconds > 9 ? "" : "0"}${seconds}s`, 14*box, 1.6*box)
+    scoreDisplay.textContent = `Score : ${score}`;
+    timeDisplay.textContent = `Time : ${seconds > 9 ? "" : "0"}${seconds}s`;
     
     if (gameOver) {
         clearInterval(game);
@@ -91,11 +90,16 @@ function draw(){
     }
     
     if(snakeX == food.x && snakeY == food.y){
-        score++;
+        const currentTime = Date.now();
+        const timeDifference = (currentTime - lastFoodTime) / 1000;
+        
+        score += (timeDifference < 2) ? 30 : 20;
+        
         food = {
             x: Math.floor(Math.random() * (canvas.width/box)) * box,
             y: Math.floor(Math.random() * (canvas.height/box)) * box
         }
+        lastFoodTime = currentTime;
     } else {
         snake.pop()
     }
@@ -125,19 +129,15 @@ function draw(){
     
     snake.unshift(newHead)
     
-    context.fillStyle = "red"
-    context.font = "30px Arial"
-    context.fillText(score, 2*box, 1.6*box)
-    
-    context.fillStyle = seconds < 11 ? "red" : "green"
-    context.font = "20px Arial"
-    context.fillText(`Temps: ${seconds > 9 ? "" : "0"}${seconds}s`, 14*box, 1.6*box)
+    scoreDisplay.textContent = `Score : ${score}`;
+    timeDisplay.textContent = `Time : ${seconds > 9 ? "" : "0"}${seconds}s`;
 }
 
 function startTimer() {
     setInterval(() => {
         if (!gameOver && seconds > 0) {
             seconds--;
+            timeDisplay.textContent = `Time : ${seconds > 9 ? "" : "0"}${seconds}s`;
         }
     }, 1000);
 }

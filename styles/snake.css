@@ -6,7 +6,6 @@
 }
 
 canvas {
-    border: 2px solid var(--tap2play-white);
     width: 1197px;
     height: 567px;
     image-rendering: auto;
