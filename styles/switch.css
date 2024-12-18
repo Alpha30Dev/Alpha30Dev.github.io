@@ -3,111 +3,64 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     --tap2play-white: #EDF2F4;
+    --tap2play-light-gray: #C6CACC;
     --tap2play-blue: #2B2D42;
+    --tap2play-dark-blue: #1B1C29;
     --tap2play-green: #8D99AE;
     --tap2play-orange: #EF233C;
     --tap2play-red: #D90429;
+    --tap2play-dark-red: #B20322;
     --tap2play-button-switch: #4C5257;
     --tap2play-display: #262C27;
+
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    background-color: var(--tap2play-white);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+}
+body > * {
+    width: 100%;
 }
 
 /* How to call a variable */
 main {
     background-color: var(--tap2play-white);
     padding: 10px;
+    box-sizing: border-box;
 }
 
 /* CSS background switch console */
 
 .console-switch{        /*container */
     display: flex;
-    background-color: var(--tap2play-display);
     width: 100%;
     height: 600px;
-    border-radius: 100px 100px 100px 100px;
 }
-.left-controller{       /* Manette de gauche */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.left-controller > *{       /* Manette de gauche */
+    display: none;
+}
+.left-controller { 
     width: 10%;
     height: 600px;
     background-color: var(--tap2play-blue);
     border-radius: 100px 0 0 100px;
 }
-.minus-button{      /*Bouton "moins" en haut à droite de la manette*/
-    display: flex;
-    justify-content: end;
-    width: 80%;
-    margin: 30px;
-    height: 30px;
-}
-.joystick{      /*Joysticks des 2 manettes*/
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background-color: var(--tap2play-button-switch);
-    border: solid 2px black;
-}
-#circle-joy{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: solid 1px black;
-}
-.interaction-button{        /*Container des 4 boutons*/
-    display: flex;
-    flex-direction: column;
-    width: 200px;
-    height: 100px;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-}
-.interact{      /*Propriétés des boutons haut, bas, gauche, droite, A, X, Y, B*/
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: var(--tap2play-button-switch);
-    border: solid 2px black;
+/*Va te calmer les idées sur ton demineur*/
 
-}
-.left-right{        /*Boutons de gauche et droite --> qu'ils soient sur la meme ligne*/
-    flex: 1;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-.left-home{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 5px;
-    border: solid 2px black;
-    background-color: var(--tap2play-button-switch);
-    margin: auto; 
-}
-#circle{
-    border: solid 1px black;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--tap2play-display);
-}
 .screen{        /*L'écran principal*/
     width: 80%;
+    background-color: var(--tap2play-display);
+    display: flex;
+    flex-direction: column;
+}
+.dispaly{
+    
 }
 .top-screen{
     display: flex;
@@ -120,41 +73,271 @@ main {
     color: var(--tap2play-white);
     box-sizing: border-box;
 }
-.right-controller{      /* Manette de droite */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.right-controller { 
     width: 10%;
     height: 600px;
     background-color: #D90429;
     border-radius: 0 100px 100px 0;
 }
-.plus-button{
-    display: flex;
-    justify-content: start;
-    width: 80%;
-    margin: 30px;
+.right-controller > *{      /* Manette de droite */
+    display: none;
+}
+
+/* header footer */
+
+button {
+    width: 260px;
+    height: 40px;
+    background-color: var(--tap2play-red);
+    color: var(--tap2play-white);
+    font-weight: bold;
+    font-size: 24px;
+    border: none;
+}
+button.blue-button {
+    background-color: var(--tap2play-blue);
+}
+button:hover {
+    background-color: var(--tap2play-dark-red);
+    cursor: pointer;
+}
+button.blue-button:hover {
+    background-color: var(--tap2play-dark-blue);
+}
+input {
+    height: 60px;
+    border: var(--tap2play-blue) 2px solid;
+    font-size: 1.4em;
+    margin: 8px;
+    padding-left: 10px;
+    flex: 1;
+    box-sizing: border-box;
+}
+input:focus {
+   outline: none;
+}
+
+.icon-normal {
+    width: 30px;
     height: 30px;
-    /* filter: brightness(0) saturate(100%) invert(11%) sepia(17%) saturate(473%) hue-rotate(78deg) brightness(97%) contrast(100%); */
+    margin: 0 10px 0 10px;
+    filter: brightness(0) saturate(100%) invert(11%) sepia(7%) saturate(3959%) hue-rotate(197deg) brightness(96%) contrast(82%);
 }
-#left-joystick{
-    margin-top: 50px;
+
+.player-list {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--tap2play-blue);
+    width: 50%;
+    min-width: 320px;
+    max-width: 800px;
+    margin: 40px;
 }
-.right-home{
+.player-list > div {
+    display: flex;
+    align-items: center;
+}
+.player-list-header{
+    font-size: 1.5em;
+    font-weight: bold;
+    justify-content: center;
+    border-bottom: 2px solid var(--tap2play-blue);
+    height: 80px;
+}
+.player-list-row{
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 10px;
+    justify-content: space-between;
+    gap: 10px;
+}
+.player-list-row:nth-child(odd){
+    background-color: var(--tap2play-light-gray);
+}
+.player-list-row > span{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: solid 2px black;
-    background-color: var(--tap2play-button-switch);
-    margin: auto; 
+    flex: 1;
+    height: 100%;
 }
-.right-home img{
-    margin-bottom: 2px;
-    filter: brightness(0) saturate(100%) invert(90%) sepia(6%) saturate(402%) hue-rotate(188deg) brightness(109%) contrast(91%);
+.player-list-row > span:last-child{
+    justify-content: end;
 }
-.interaction-button span{
+.player-list-row > span:first-child{
+    justify-content: start;
+}
+
+.player-input {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    min-width: 320px;
+    max-width: 800px;
+    margin: 40px;
+    height: 150px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--tap2play-blue);
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+.logo-center {
+    display: none;
+    flex: 1;
+    text-align: center;
+    margin-right: 180px; 
+}
+.logo-center img {
+    height: 100px;
+}
+
+.logo-left {
+    width: 100%;
+    text-align: center;
+}
+.logo-left img{
+    height: 100px;
+}
+footer {
+    background-color: var(--tap2play-red);
+    text-align: center;
+    padding: 10px;
     color: var(--tap2play-white);
+    box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+    .right-controller{      /* Manette de droite */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 10%;
+        height: 600px;
+        background-color: #D90429;
+        border-radius: 0 100px 100px 0;
+        overflow: hidden;
+    }
+    .plus-button{
+        display: flex;
+        justify-content: start;
+        width: 80%;
+        margin: 30px;
+        height: 30px;
+        /* filter: brightness(0) saturate(100%) invert(11%) sepia(17%) saturate(473%) hue-rotate(78deg) brightness(97%) contrast(100%); */
+    }
+    #left-joystick{
+        margin-top: 50px;
+    }
+    .right-home{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: solid 2px black;
+        background-color: var(--tap2play-button-switch);
+        margin: auto; 
+    }
+    .right-home img{
+        margin-bottom: 2px;
+        filter: brightness(0) saturate(100%) invert(90%) sepia(6%) saturate(402%) hue-rotate(188deg) brightness(109%) contrast(91%);
+    }
+    .interaction-button span{
+        color: var(--tap2play-white);
+    }
+    .left-controller{       /* Manette de gauche */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 10%;
+        height: 600px;
+        background-color: var(--tap2play-blue);
+        border-radius: 100px 0 0 100px;
+        overflow: hidden;
+    }
+    .minus-button{      /*Bouton "moins" en haut à droite de la manette*/
+        display: flex;
+        justify-content: end;
+        width: 80%;
+        margin: 30px;
+        height: 30px;
+    }
+    .joystick{      /*Joysticks des 2 manettes*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background-color: var(--tap2play-button-switch);
+        border: solid 2px black;
+    }
+    #circle-joy{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: solid 1px black;
+    }
+    .interaction-button{        /*Container des 4 boutons*/
+        display: none;
+    }
+    .interact{      /*Propriétés des boutons haut, bas, gauche, droite, A, X, Y, B*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: var(--tap2play-button-switch);
+        border: solid 2px black;
+    
+    }
+    .left-right{        /*Boutons de gauche et droite --> qu'ils soient sur la meme ligne*/
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .left-home{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+        border: solid 2px black;
+        background-color: var(--tap2play-button-switch);
+        margin: auto; 
+    }
+    #circle{
+        border: solid 1px black;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--tap2play-display);
+    }
+}
+@media (min-width : 992px) {
+    .interaction-button{        /*Container des 4 boutons*/
+        display: flex;
+        flex-direction: column;
+        width: 120px;
+        height: 100px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+    }
 }
