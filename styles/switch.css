@@ -60,7 +60,7 @@ main {
     flex-direction: column;
 }
 .dispaly{
-    
+    display: flex;
 }
 .top-screen{
     display: flex;
