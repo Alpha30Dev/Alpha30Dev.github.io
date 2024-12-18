@@ -27,6 +27,7 @@ const timeDisplay = document.querySelector('.top-screen span:nth-child(2)');
 document.addEventListener("keydown", direction);
 
 function direction(event){
+    event.preventDefault();
     let key = event.keyCode;
     if(key == 37 && lastDirection != "RIGHT" && d != "RIGHT"){
         d = "LEFT";

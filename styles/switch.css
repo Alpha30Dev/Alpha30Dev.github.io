@@ -59,9 +59,6 @@ main {
     display: flex;
     flex-direction: column;
 }
-.dispaly{
-    display: flex;
-}
 .top-screen{
     display: flex;
     justify-content: space-around;
