@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pendu</title>
     <link rel="stylesheet" href="styles/pendu.css">
-    <link rel="stylesheet" href="/styles/switch.css">
+    <link rel="stylesheet" href="styles/switch.css">
     <script src="scripts/pendu.js" defer></script>
 </head>
 <body>
@@ -43,15 +43,14 @@
             <div class="screen">
                 <div class="top-screen">
                     <span>Nom du joueur</span>
-                    <span>Time : 00:36</span>
-                    <span>Score : 2500</span>
+                    <span id="count-down">Temps: 00:00</span>
+                    <div id="scoreDisplay"></div> <!-- Ajout du score -->
                 </div>
                 <div class="display">
                     <div class="pendu-container">
                         <h1>Jeu du Pendu</h1>
-                        <div id="count-down">Temps: 60s</div> 
                         <div class="hangman-container">
-                        <img id="hangmanImage" src="elements/hangman1.png" alt="Bonhomme Pendu" />
+                            <img id="hangmanImage" src="elements/hangman1.png" alt="Bonhomme Pendu" />
                         </div>
                         <div id="wordDisplay"></div>
                         <div id="guesses"></div>
