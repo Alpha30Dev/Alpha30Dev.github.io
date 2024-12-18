@@ -59,7 +59,7 @@ main {
     display: flex;
     flex-direction: column;
 }
-.dispaly{
+.display{
     display: flex;
 }
 .top-screen{
@@ -85,7 +85,7 @@ main {
 
 /* header footer */
 
-button {
+footer button {
     width: 260px;
     height: 40px;
     background-color: var(--tap2play-red);
@@ -97,14 +97,14 @@ button {
 button.blue-button {
     background-color: var(--tap2play-blue);
 }
-button:hover {
+footer button:hover {
     background-color: var(--tap2play-dark-red);
     cursor: pointer;
 }
 button.blue-button:hover {
     background-color: var(--tap2play-dark-blue);
 }
-input {
+/* input {
     height: 60px;
     border: var(--tap2play-blue) 2px solid;
     font-size: 1.4em;
@@ -115,7 +115,7 @@ input {
 }
 input:focus {
    outline: none;
-}
+} */
 
 .icon-normal {
     width: 30px;
@@ -124,7 +124,7 @@ input:focus {
     filter: brightness(0) saturate(100%) invert(11%) sepia(7%) saturate(3959%) hue-rotate(197deg) brightness(96%) contrast(82%);
 }
 
-.player-list {
+/* .player-list {
     display: flex;
     flex-direction: column;
     border: 2px solid var(--tap2play-blue);
@@ -178,7 +178,7 @@ input:focus {
     max-width: 800px;
     margin: 40px;
     height: 150px;
-}
+} */
 
 .navbar {
     display: flex;
