@@ -1,0 +1,10 @@
+#minesweeper {
+    display: grid;
+    grid-template-columns: repeat(10 ,1fr);
+    height: 100%;
+    aspect-ratio: 1/1;
+    max-height: 800px;
+}
+.tile {
+    background-color: azure;
+}
