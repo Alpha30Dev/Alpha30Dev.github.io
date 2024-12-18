@@ -9,7 +9,6 @@ body {
     --tap2play-dark-red: #B20322;
 }
 
-
 #minesweeper {
     display: grid;
     grid-template-columns: repeat(10 ,1fr);
@@ -22,6 +21,8 @@ body {
     align-items: center;
     justify-content: center;
 
+    aspect-ratio: 1/1;
+
     font-weight: bold;
 
     background-color: var(--tap2play-light-gray);
@@ -29,4 +30,14 @@ body {
 }
 .tile:hover {
     background-color: var(--tap2play-white);
+}
+.clicked {
+    background-color: var(--tap2play-white);
+    box-shadow: none;
+}
+.mine {
+    width: 50%;
+}
+.flag {
+    width: 50%;
 }
