@@ -11,17 +11,19 @@ class PlayFieldClass {
 
 class TileClass {
     constructor() {
-
+        
     }
     GetHtml() {
         let newTile = document.createElement("div");
         newTile.className = "tile";
+        newTile.addEventListener("click", (e) => this.Click(e));
         newTile.innerHTML =  `
-            <div class="tile">
                 T
-            </div>
         `;
         return newTile;
+    }
+    Click() {
+
     }
 }
 

@@ -1,10 +1,32 @@
+body {
+    --tap2play-white: #EDF2F4;
+    --tap2play-light-gray: #C6CACC;
+    --tap2play-blue: #2B2D42;
+    --tap2play-dark-blue: #1B1C29;
+    --tap2play-green: #8D99AE;
+    --tap2play-orange: #EF233C;
+    --tap2play-red: #D90429;
+    --tap2play-dark-red: #B20322;
+}
+
+
 #minesweeper {
     display: grid;
     grid-template-columns: repeat(10 ,1fr);
     height: 100%;
     aspect-ratio: 1/1;
-    max-height: 800px;
+    max-height: 600px;
 }
 .tile {
-    background-color: azure;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+
+    background-color: var(--tap2play-light-gray);
+    box-shadow: inset 1px 1px 0px 2px var(--tap2play-white), inset -2px -2px 0px 2px var(--tap2play-blue);
+}
+.tile:hover {
+    background-color: var(--tap2play-white);
 }
