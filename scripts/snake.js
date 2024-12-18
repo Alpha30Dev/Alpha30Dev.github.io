@@ -94,7 +94,7 @@ function draw(){
         const currentTime = Date.now();
         const timeDifference = (currentTime - lastFoodTime) / 1000;
         
-        score += (timeDifference < 2) ? 30 : 20;
+        score += (timeDifference < 2) ? 300 : 150;
         
         food = {
             x: Math.floor(Math.random() * (canvas.width/box)) * box,
