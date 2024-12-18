@@ -1,0 +1,19 @@
+body{--tap2play-white: #EDF2F4;
+--tap2play-light-gray: #C6CACC;
+--tap2play-blue: #2B2D42;
+--tap2play-dark-blue: #1B1C29;
+--tap2play-green: #8D99AE;
+--tap2play-orange: #EF233C;
+--tap2play-red: #D90429;
+--tap2play-dark-red: #B20322;
+--tap2play-button-switch: #4C5257;
+--tap2play-display: #262C27;
+}
+.display{
+    display: flex;
+    background-color: white;
+}
+
+.cell{
+
+}
