@@ -158,3 +158,18 @@ main {
 .interaction-button span{
     color: var(--tap2play-white);
 }
+
+.display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 30px);
+}
+
+canvas {
+    border: 2px solid var(--tap2play-white);
+    width: 1197px;
+    height: 567px;
+}
+
+
