@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./switch.css">
+    <link rel="stylesheet" href="./wordleregles.css">
+    <script src="./wordleregles.js" defer></script>
+    <title>Règles du Wordle</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo-left">
+                <!-- <img src="elements/logo-image.png" alt="Logo Gauche"> -->
+            </div>
+            <div class="logo-center">
+                <!-- <img src="elements/logo-titre.png" alt="Logo Centre"> -->
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h1 style="color:black; width: fit-content; margin: 0 auto 0 auto;">Règles du Wordle</h1>
+        <div class="console-switch">
+            <div class="left-controller">
+                <div class="minus-button">
+                    <img src="./icons/dash-lg.svg" alt="minus button">
+                </div>
+                <div class="joystick">
+                    <div id="circle-joy"></div>
+                </div>
+                <div class="interaction-button">
+                    <img class="interact" src="./icons/caret-up-fill.svg" alt="Bouton du haut">
+                    <div class="left-right">
+                        <img class="interact" src="./icons/caret-left-fill.svg" alt="Bouton de gauche">
+                        <img class="interact" src="./icons/caret-right-fill.svg" alt="Bouton de droite">
+                    </div>
+                    <img class="interact" src="./icons/caret-down-fill.svg" alt="Bouton du haut">
+                </div>
+                <div class="left-home">
+                    <div id="circle"></div>
+                </div>
+            </div>
+            <div class="screen">
+                <div class="top-screen">
+                    <span id="cs-current-player"></span>
+                    <span id="cs-count-down">Time: 1:00</span>
+                </div>
+                <div class="display">
+                    <!-- MY CODE -->
+                    <div id="cs-game-container">
+                        <div id="rules-one">
+                            <p class="small-page-elements">Page 1</p>
+                            <p>Le principe du jeu est simple: trouver un mot de cinq lettres en six tentatives ou moins.</p>
+                            <p>•    correctes et bien placées (un carré vert qui vaut 200 points)</p> 
+                            <p>•	correctes mais mal placées (un carré orange qui vaut 100 points)</p>
+                            <p>•	ou les lettres ne sont pas présent dans le mot (indiquées par un carré noir qui vaut 0 points)</p>
+                        </div>
+                        <div id="rules-two">
+                            <p class="small-page-elements">Page 2</p>
+                            <p>A la fin de jeu les joueurs sont classés par les points de leur meilleure tentative et après par les temps passé.</p>
+                            <p>Le score final (qui compte pour Tap-2-Play) est déterminé par ce classement. Le dernier joueur reçoit 1 point et le jouer en premier reçoit des points équivalent</p>
+                            <p>Si plusieurs joueurs ont les mêmes points et le même temps ils reçoivent les mêmes points pour le score final.</p>
+                        </div>
+                        <button id="page-btn" class="small-page-elements">Passer a Page 2</button>
+                    </div>
+                    <!-- END OF MY CODE -->
+                </div>
+            </div>
+            <div class="right-controller">
+                <div class="plus-button">
+                    <img src="./icons/plus-lg.svg" alt="plus button">
+                </div>
+                <div class="interaction-button">
+                    <div class="interact" id="up">
+                        <span>X</span>
+                    </div>
+                    <div class="left-right">
+                        <span class="interact" id="left">Y</span>
+                        <span class="interact" id="right">A</span>
+                    </div>
+                    <div class="interact" id="down">
+                        <span>B</span>
+                    </div>
+                </div>
+                <div class="joystick" id="left-joystick">
+                    <div id="circle-joy"></div>
+                </div>
+                <div class="right-home">
+                    <div id="circle">
+                        <img src="./icons/house.svg" alt="Bouton de retour au menu principale">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <button>On fait quoi ici?</button>
+    </footer>  
+</body>
+</html>
