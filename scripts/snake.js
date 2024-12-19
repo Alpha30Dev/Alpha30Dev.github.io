@@ -1,10 +1,11 @@
-const canvas = document.querySelector("canvas")
-const context = canvas.getContext('2d')
+const canvas = document.querySelector("canvas");
+const display = document.querySelector(".display");
+const context = canvas.getContext('2d');
 
-canvas.width = 1197;
-canvas.height = 567;
+canvas.width = display.offsetWidth - display.offsetWidth % 20;
+canvas.height = display.offsetHeight - display.offsetHeight % 20;
 
-let box = 21
+let box = 20;
 
 let snake = [];
 snake[0] = { x: Math.floor(canvas.width/2/box)*box, y: Math.floor(canvas.height/2/box)*box }
@@ -133,7 +134,7 @@ function saveScoreAndNextPlayer() {
     
     if (currentPlayerIndex >= players.length) {
         // Fin du jeu - tous les joueurs ont joué
-        window.location.href = '/Snake.html';
+        window.location.href = '/endPage.html';
         return;
     }
     
