@@ -13,7 +13,36 @@ let food = {
     x: Math.floor(Math.random() * (canvas.width/box)) * box,
     y: Math.floor(Math.random() * (canvas.height/box)) * box
 }
+//test
+let players = [
+    {
+        name: "Connor",
+        wordleScore: 0,
+        hangmanScore: 0,
+        snakeScore: 0,
+        minesweeperScore: 0,
+        game2048: 0, 
+    },
+    {
+        name: "Soukaina",
+        wordleScore: 0,
+        hangmanScore: 0,
+        snakeScore: 0,
+        minesweeperScore: 0,
+        game2048: 0, 
+    },
+    {
+        name: "Thomas",
+        wordleScore: 0,
+        hangmanScore: 0,
+        snakeScore: 0,
+        minesweeperScore: 0,
+        game2048: 0, 
+    },
+]
 
+localStorage.setItem("t2p-players", JSON.stringify(players))
+//test
 let score = 0
 let d
 let seconds = 59
@@ -26,9 +55,17 @@ const timeDisplay = document.querySelector('.top-screen span:nth-child(2)');
 
 document.addEventListener("keydown", direction);
 
+let timerStarted = false;
+
 function direction(event){
     event.preventDefault();
     let key = event.keyCode;
+    
+    if (!timerStarted) {
+        startTimer();
+        timerStarted = true;
+    }
+    
     if(key == 37 && lastDirection != "RIGHT" && d != "RIGHT"){
         d = "LEFT";
     } else if (key == 39 && lastDirection != "LEFT" && d != "LEFT"){
@@ -47,6 +84,95 @@ function collision(head, array){
         }
     }
     return false;
+}
+
+let currentPlayerIndex = 0;
+const playerNameDisplay = document.querySelector('.top-screen span:nth-child(1)');
+
+function updatePlayerDisplay() {
+    playerNameDisplay.textContent = players[currentPlayerIndex].name;
+}
+
+function saveScoreAndNextPlayer() {
+    // Sauvegarde du score temporaire
+    let tempScore = score;
+    
+    // Si c'est le dernier joueur, calculer les points finaux pour tous
+    if (currentPlayerIndex === players.length - 1) {
+        // Créer un tableau temporaire avec les scores et les indices
+        let tempScores = players.map((player, index) => ({
+            index: index,
+            score: player.snakeScore
+        }));
+        
+        // Trier les scores du plus haut au plus bas
+        tempScores.sort((a, b) => b.score - a.score);
+        
+        // Attribuer les points en fonction du classement
+        tempScores.forEach((item, position) => {
+            // Le nombre de points est égal au nombre de joueurs - position
+            let points = players.length - position;
+            
+            // Si des joueurs ont le même score, ils reçoivent le même nombre de points
+            if (position > 0 && tempScores[position - 1].score === item.score) {
+                points = players.length - (position - 1);
+            }
+            
+            // Remplacer le score par les points
+            players[item.index].snakeScore = points;
+        });
+    } else {
+        // Sauvegarder le score temporaire pour la comparaison finale
+        players[currentPlayerIndex].snakeScore = tempScore;
+    }
+    
+    localStorage.setItem("t2p-players", JSON.stringify(players));
+    
+    // Passage au joueur suivant
+    currentPlayerIndex++;
+    
+    if (currentPlayerIndex >= players.length) {
+        // Fin du jeu - tous les joueurs ont joué
+        window.location.href = '/Snake.html';
+        return;
+    }
+    
+    // Reset pour le prochain joueur
+    resetGame();
+}
+
+let timerInterval;
+
+function startTimer() {
+    // Arrêt du timer précédent s'il existe
+    if (timerInterval) {
+        clearInterval(timerInterval);
+    }
+    timerInterval = setInterval(() => {
+        if (!gameOver && seconds > 0) {
+            seconds--;
+            timeDisplay.textContent = `Time : ${seconds > 9 ? "" : "0"}${seconds}s`;
+        }
+    }, 1000);
+}
+
+function resetGame() {
+    snake = [];
+    snake[0] = { x: Math.floor(canvas.width/2/box)*box, y: Math.floor(canvas.height/2/box)*box };
+    food = {
+        x: Math.floor(Math.random() * (canvas.width/box)) * box,
+        y: Math.floor(Math.random() * (canvas.height/box)) * box
+    };
+    score = 0;
+    seconds = 59;
+    gameOver = false;
+    timerStarted = false;
+    d = lastDirection = null;
+    updatePlayerDisplay();
+    game = setInterval(draw, 50);
+    if (timerInterval) {
+        clearInterval(timerInterval);
+    }
 }
 
 function draw(){
@@ -125,6 +251,7 @@ function draw(){
     if(collision(newHead, snake) || seconds === 0){
         clearInterval(game);
         gameOver = true;
+        saveScoreAndNextPlayer();
         return;
     }
     
@@ -134,14 +261,7 @@ function draw(){
     timeDisplay.textContent = `Time : ${seconds > 9 ? "" : "0"}${seconds}s`;
 }
 
-function startTimer() {
-    setInterval(() => {
-        if (!gameOver && seconds > 0) {
-            seconds--;
-            timeDisplay.textContent = `Time : ${seconds > 9 ? "" : "0"}${seconds}s`;
-        }
-    }, 1000);
-}
-
 let game = setInterval(draw, 50);
-startTimer();
+
+// Initialisation au chargement
+updatePlayerDisplay();
