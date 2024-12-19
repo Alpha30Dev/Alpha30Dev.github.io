@@ -1,6 +1,6 @@
-const pageOne = document.getElementById("rules-one")
-const pageTwo = document.getElementById("rules-two")
-const pageBtn = document.getElementById("page-btn")
+const pageOne = document.getElementById("cs-rules-one")
+const pageTwo = document.getElementById("cs-rules-two")
+const pageBtn = document.getElementById("cs-page-btn")
 
 pageBtn.addEventListener("click", () => {
     pageOne.style.display = pageOne.style.display === "none" ? "block" : "none"

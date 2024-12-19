@@ -9,11 +9,11 @@ body {
     text-align: center;
 }
 
-.small-page-elements {
+.cs-small-page-elements {
     display: block;
 }
 
-#rules-two {
+#cs-rules-two {
     display: none;
 }
 
@@ -36,10 +36,10 @@ button {
 }
 
 @media (min-width: 768px) {
-    .small-page-elements {
+    .cs-small-page-elements {
         display: none;
     }
-    #rules-two {
+    #cs-rules-two {
         display: block;
     }
 }
