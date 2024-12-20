@@ -6,34 +6,50 @@ let inputForm = document.getElementById("cs-input-form")
 //NEED TO TAKE OUT CONSOLE LOGS 
 
 //DEVELOPMENT PLAYERS (TO BE DELETED)
-let players = [
-    {
-        name: "Connor",
-        wordleScore: 0,
-        penduScore: 0,
-        snakeScore: 0,
-        demineurScore: 0,
-        twoThousandFortyEightScore: 0, 
-    },
-    {
-        name: "Soukaina",
-        wordleScore: 0,
-        penduScore: 0,
-        snakeScore: 0,
-        demineurScore: 0,
-        twoThousandFortyEightScore: 0, 
-    },
-    {
-        name: "Thomas",
-        wordleScore: 0,
-        penduScore: 0,
-        snakeScore: 0,
-        demineurScore: 0,
-        twoThousandFortyEightScore: 0, 
-    },
-]
+// let players = [
+//     {
+//         name: "Connor",
+//         wordleScore: 3,
+//         hangmanScore: 1,
+//         snakeScore: 2,
+//         minesweeperScore: 1,
+//         game2048: 1
+//     },
+//     {
+//         name: "Soukaina",
+//         wordleScore: 2,
+//         hangmanScore: 2,
+//         snakeScore: 1,
+//         minesweeperScore: 3,
+//         game2048: 3
+//     },
+//     {
+//         name: "Thomas",
+//         wordleScore: 1,
+//         hangmanScore: 2,
+//         snakeScore: 3,
+//         minesweeperScore: 3,
+//         game2048: 5
+//     },
+//     {
+//         name: "Jenny",
+//         wordleScore: 1,
+//         hangmanScore: 2,
+//         snakeScore: 3,
+//         minesweeperScore: 3,
+//         game2048: 5
+//     },
+//     {
+//         name: "Olivia",
+//         wordleScore: 1,
+//         hangmanScore: 2,
+//         snakeScore: 3,
+//         minesweeperScore: 3,
+//         game2048: 1000
+//     },
+// ]
 
-localStorage.setItem("t2p-players", JSON.stringify(players))
+// localStorage.setItem("t2p-players", JSON.stringify(players))
 //END OF DEVELOPMENT PLAYERS (TO BE DELETED)
 
 //GET PLAYER INFO FROM LOCAL
@@ -197,20 +213,20 @@ const endGame = () => {
         let messagesTwo = document.getElementById("cs-messages")
         gameContainer.innerHTML = ""
         gameContainer.appendChild(messagesTwo)
-        messagesTwo.innerText += "\nTous les jouers ont joué."
+        messagesTwo.innerText += "\nTous les joueurs ont joué."
 
         //THIS BUTTON (MAYBE AN <a></a>) NEEDS TO BE THE LINK OUT OF WORDLE (EITHER TO FINAL SCORES OR DIRECT TO THE NEXT GAME)
         gameContainer.innerHTML += `
             <table id="cs-score-table">
                 <thead>
                     <tr>
-                    <th class="cs-table-column cs-outline" scope="col">Jouer</th>
+                    <th class="cs-table-column cs-outline" scope="col">Joueur</th>
                     <th class="cs-table-column cs-outline" scope="col">Score</th>
                     <th class="cs-table-column cs-outline" scope="col">Temps</th>
                     </tr>
                 </thead>
             </table>
-            <button class="cs-button" onclick="tempFunction()")}" style="display: block">Prochain jeu</button>
+            <button class="cs-button" style="display: block"><a href="./endpage.html">Prochain jeu</button>
         `
         let scoreTable = document.getElementById("cs-score-table")
 
@@ -233,13 +249,13 @@ const endGame = () => {
             <table id="cs-score-table">
                 <thead>
                     <tr>
-                    <th class="cs-table-column cs-outline" scope="col">Jouer</th>
+                    <th class="cs-table-column cs-outline" scope="col">Joueur</th>
                     <th class="cs-table-column cs-outline" scope="col">Score</th>
                     <th class="cs-table-column cs-outline" scope="col">Temps</th>
                     </tr>
                 </thead>
             </table>
-            <button class="cs-button" onclick="loadNewPlayer()" style="display: block">Prochain jouer</button> 
+            <button class="cs-button" onclick="loadNewPlayer()" style="display: block">Prochain joueur</button> 
         `
         let scoreTable = document.getElementById("cs-score-table")
 
@@ -261,7 +277,6 @@ const tempFunction = () => {
 }
 
 const endWordle = () => {
-    console.log("arrayOfPlayersScores", arrayOfPlayersScores)
     
     //SORT BY SCORE AND THEN TIME
     arrayOfPlayersScores.sort((a, b) => {

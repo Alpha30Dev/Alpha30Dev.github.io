@@ -5,6 +5,7 @@ body {
 
 #cs-game-container {
     width: 95%;
+    max-width: 600px;
     margin: 0 auto 0 auto;
     text-align: center;
 }
