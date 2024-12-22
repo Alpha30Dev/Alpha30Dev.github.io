@@ -1,19 +1,99 @@
-body{--tap2play-white: #EDF2F4;
---tap2play-light-gray: #C6CACC;
---tap2play-blue: #2B2D42;
---tap2play-dark-blue: #1B1C29;
---tap2play-green: #8D99AE;
---tap2play-orange: #EF233C;
---tap2play-red: #D90429;
---tap2play-dark-red: #B20322;
---tap2play-button-switch: #4C5257;
---tap2play-display: #262C27;
+@import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    --tap2play-white: #EDF2F4;
+    --tap2play-light-gray: #C6CACC;
+    --tap2play-blue: #2B2D42;
+    --tap2play-dark-blue: #1B1C29;
+    --tap2play-green: #8D99AE;
+    --tap2play-orange: #EF233C;
+    --tap2play-red: #D90429;
+    --tap2play-dark-red: #B20322;
+    --tap2play-button-switch: #4C5257;
+    --tap2play-display: #262C27;
+
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    background-color: var(--tap2play-white);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
 }
 .display{
     display: flex;
-    background-color: white;
+    width: 600px;
+    height: 600px;
+    justify-content: center;
+    align-items: center;
+}
+.game-container{
+    display: flex;
+    flex-direction: column;
+    /* background-color: var(--tap2play-button-switch); */
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+}
+#container-cell{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    height: 90%;
+    width: 90%;
+    gap: 10px;
+    padding: 15px;
+}
+.cell{
+    display: flex;
+    background-color: var(--tap2play-white);
+    border-radius: 50%;
+    border: solid 3px var(--tap2play-green);
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: bold;
+    aspect-ratio: 1/1;
 }
 
-.cell{
-
+#color0{
+    background-color: var(--tap2play-white);
+}
+#color2{
+    background-color: #EEE4DA;
+}
+#color4{
+    background-color: #EDE0C8;
+}
+#color8{
+    background-color: #F2B179;
+}
+#color16{
+    background-color: #F59563;
+}
+#color32{
+    background-color: #F67C60;
+}
+#color64{
+    background-color: #F65E3B;
+}
+#color128{
+    background-color: #EDCF73;
+}
+#color256{
+    background-color: #EDCC62;
+}
+#color512{
+    background-color: #EDC850;
+}
+#color1024{
+    background-color: #EDC53F;
+}
+#color2048{
+    background-color: #EDC22D;
 }
