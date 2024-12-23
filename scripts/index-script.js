@@ -14,8 +14,8 @@ class IndexPageClass {
             if (e.key != "Enter") return;
         }
         this.playerInput.value = this.removeSpecialChars(this.playerInput.value);
-        if (this.playerInput.value.length > 50 || this.playerInput.value.length < 1) {
-            alert("Le nom du joueur doit être entre 1 et 50 lettres.");
+        if (this.playerInput.value.length > 8 || this.playerInput.value.length < 1) {
+            alert("Le nom du joueur doit être entre 1 et 8 lettres.");
             return;
         }
         this.playerList.addPlayerRow(this.playerInput.value);
