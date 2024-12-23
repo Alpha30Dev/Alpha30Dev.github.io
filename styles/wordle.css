@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    --tap2play-white: #EDF2F4;
+    --tap2play-blue: #2B2D42;
+    --tap2play-green: #8D99AE;
+    --tap2play-orange: #EF233C;
+    --tap2play-red: #D90429;
+    color: var(--tap2play-white)
+}
+
+#cs-messages {
+    display: none;
+    width: 100%;
+    text-align: center;
+}
+
+#cs-clue-p {
+    width: 98%;
+    margin: 10px auto 0 auto;
+    text-align: center;
+}
+
+#cs-game-container {
+    width: 95%;
+    margin: 0 auto 0 auto; 
+}
+
+.cs-word-container {
+    width: 230px;
+    margin: 0 auto 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+    border: 1px solid var(--tap2play-white);
+}
+
+.cs-display-box {
+    width: 2rem;
+    height: 2rem;
+    margin-left: 3px;
+    margin-right: 3px;
+    border: 1px solid var(--tap2play-white);
+}
+
+#cs-input-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+
+#cs-submit-btn, button {
+    width: fit-content;
+    height: 40px;
+    background-color: var(--tap2play-red);
+    color: var(--tap2play-white);
+    font-weight: bold;
+    font-size: 24px;
+    border: none;
+    display: block;
+    margin: 10px auto 10px auto;
+}
+
+#cs-submit-btn:focus {
+    border: 1px solid var(--tap2play-white); 
+}
+
+.cs-display-box-p {
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid var(--tap2play-white);
+    text-align: center;
+    padding-top: 2px;
+}
+
+.cs-labels {
+    display: none;
+}
+
+#cs-score-table {
+    margin-left: auto; 
+    margin-right: auto; 
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.cs-outline {
+    border: 1px solid var(--tap2play-white);
+}
+
+.cs-table-column {
+    width: 30%;
+}
+
+.cs-button {
+    width: fit-content;
+    display: block;
+    margin: 10px auto 10px auto;
+}
+
+
+/* MEDIA QUERIES */

@@ -1,0 +1,46 @@
+body {
+    color: white;
+    font-size: 1rem;
+}
+
+#cs-game-container {
+    width: 95%;
+    max-width: 600px;
+    margin: 0 auto 0 auto;
+    text-align: center;
+}
+
+.cs-small-page-elements {
+    display: block;
+}
+
+#cs-rules-two {
+    display: none;
+}
+
+button {
+    width: fit-content;
+    height: 40px;
+    background-color: var(--tap2play-red);
+    color: var(--tap2play-white);
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    display: block;
+    margin: 10px auto 10px auto;
+}
+
+@media (min-width: 360px) {
+    body {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 768px) {
+    .cs-small-page-elements {
+        display: none;
+    }
+    #cs-rules-two {
+        display: block;
+    }
+}
