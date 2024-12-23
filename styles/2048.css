@@ -39,24 +39,25 @@ body {
     height: 100%;
     align-items: center;
     justify-content: center;
-    border-radius: 20px;
 }
 #container-cell{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    height: 90%;
-    width: 90%;
+    height: 250px;
+    width: 250px; 
     gap: 10px;
     padding: 15px;
 }
 .cell{
     display: flex;
+    width: 50px;
+    height: 50px;
     background-color: var(--tap2play-white);
-    border-radius: 50%;
+    /* border-radius: 50%; */
     border: solid 3px var(--tap2play-green);
     align-items: center;
     justify-content: center;
-    font-size: 40px;
+    font-size: 20px;
     font-weight: bold;
     aspect-ratio: 1/1;
 }
@@ -96,4 +97,44 @@ body {
 }
 #color2048{
     background-color: #EDC22D;
+}
+
+@media(min-width: 500px){
+    #container-cell{
+        height: 350px;
+        width: 370px;
+    }
+    .cell{
+        width: 70px;
+        height: 70px;
+        font-size: 30px;
+    }
+}
+@media(min-width : 768px){
+    .display{
+        width: 600px;
+        height: 600px;
+    }
+    .game-container{
+        width: 100%;
+        height: 100%;
+    }
+    #container-cell{
+        height: 500px;
+        width: 600px;
+        padding: 15px;
+    }
+    .cell{
+        display: flex;
+        width: 100px;
+        height: 100px;
+        background-color: var(--tap2play-white);
+        /* border-radius: 50%; */
+        border: solid 3px var(--tap2play-green);
+        align-items: center;
+        justify-content: center;
+        font-size: 40px;
+        font-weight: bold;
+        aspect-ratio: 1/1;
+    }
 }

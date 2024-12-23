@@ -1,10 +1,11 @@
 const countDownDisplay = document.getElementById("count-down");
 let previousBoard = [];
-let score = 0;
+let score = document.getElementById("score");
 let grid = Array.from({ length: 16 }, () => 0);
 let result = document.getElementById("container-cell");
 let seconds = 59;
 let ticker;
+const players = JSON.parse(localStorage.getItem("t2p-players"));
 
 
 function generate() {
@@ -259,16 +260,19 @@ function tick () {
 
     countDownDisplay.innerText = `Time: ${seconds > 9 ? "" : "0"}${seconds}s`;
     seconds < 11 ? countDownDisplay.style.color = "red" : "";
-    if (seconds === 0) {clearInterval(ticker)}
+    if (seconds === 0) {
+        clearInterval(ticker)
+        finishGame();
+    };
 
 }
 
 // function score(){
-
+//     if()
 // }
 
 function finishGame(){
-    alert("La partie est terminée. Merci d'avoir joué. Vous voulez réssayer ? NON ! COMMENT CA NON ! Laisse moi Thierry ! Bien sur que je m'enerve il ne veut pas recommencer.");
+    alert("La partie est terminée.");
     restartGame();
 }
 
@@ -282,7 +286,59 @@ function restartGame(){
     seconds = 60;
 }
 
+function direction(event){
+    event.preventDefault();
+    let key = event.key;
+}
 
 
 
-// 100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+let currentPlayerIndex = 0;
+const playerNameDisplay = document.querySelector('.top-screen span:nth-child(1)');
+
+function updatePlayerDisplay() {
+    playerNameDisplay.textContent = players[currentPlayerIndex].name;
+}
+
+function saveScoreAndNextPlayer() {
+    // Sauvegarder le score temporaire
+    players[currentPlayerIndex].score = score;
+
+    // Si c'est le dernier joueur, calculer les points finaux pour tous
+    if (currentPlayerIndex === players.length - 1) {
+        // Créer un tableau temporaire avec les scores et les indices
+        let tempScores = players.map((player, index) => ({
+            index: index,
+            score: player.temp2048Score || 0
+        }));
+
+        // Trier les scores du plus haut au plus bas
+        tempScores.sort((a, b) => b.score - a.score);
+
+        // Attribuer les points en fonction du classement
+        tempScores.forEach((item, position) => {
+            // Le nombre de points est égal au nombre de joueurs - position
+            let points = players.length - position;
+
+            // Si des joueurs ont le même score, ils reçoivent le même nombre de points
+            if (position > 0 && tempScores[position - 1].score === item.score) {
+                points = players.length - (position - 1);
+            }
+
+            // Mettre à jour le score Snake dans le format attendu par endPage
+            players[item.index].snakeScore = points;
+        });
+
+        // Sauvegarder dans localStorage et rediriger
+        localStorage.setItem("t2p-players", JSON.stringify(players));
+        window.location.href = '/endPage.html';
+    } else {
+        // Passage au joueur suivant
+        currentPlayerIndex++;
+        resetGame();
+        localStorage.setItem("t2p-players", JSON.stringify(players));
+    }
+}
+
+let timerInterval;
