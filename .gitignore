@@ -1,14 +1,12 @@
 /elements
 /icons
 /Legacy Code
-/scripts
-/styles
+
+/styles/style.css
+/scripts/index-script.js
 
 /developer.js
 
 /index.html
 
 /switch.css
-
-
-

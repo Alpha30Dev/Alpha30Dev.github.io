@@ -76,8 +76,7 @@ const startBtnClick = async () => {
         let data = await fetch(`https://trouve-mot.fr/api/size/5`)
         let wordObj = await data.json()
         word = wordObj[0].name 
-        console.log(word)
-        //NEED A FILTER HERE IN CASE YOU GET STRANGE CHARACTERS SUCH AS "œ"
+        //console.log(word)
         clue = wordObj[0].categorie
         clueP.innerText = `Indice: ${clue.toLocaleLowerCase()}`
         outOfGuesses = false
@@ -110,8 +109,7 @@ const formSubmit = (event) => {
     let wordArray = word.split("")
     
     //ENHANCEMENT FOR THE FUTURE - CHECK THE INPUT AGAINST A FRENCH LANGUAGE DICTIONARY TO BE SURE IT IS A REAL WORD (NO FRENCH LANGUAGE DICTIONARY APIs FOUND AT THE TIME OF DEVELOPEMENT) 
-    //Emailed Collins to ask for free access to their api to check if the entry is a word - awaiting their response before incorperating this into the game
-
+    
     let boxColors = []
     let wordScore = []
     
@@ -226,7 +224,7 @@ const endGame = () => {
                     </tr>
                 </thead>
             </table>
-            <button class="cs-button" style="display: block"><a href="./endpage.html">Prochain jeu</button>
+            <button class="cs-button" style="display: block"><a href="./minesweeper.html">Prochain jeu</button>
         `
         let scoreTable = document.getElementById("cs-score-table")
 
@@ -269,11 +267,6 @@ const endGame = () => {
             `
         })  
     }
-}
-
-//tempFunction for deleting
-const tempFunction = () => {
-    console.log("This is over baby!")
 }
 
 const endWordle = () => {

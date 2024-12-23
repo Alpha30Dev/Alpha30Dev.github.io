@@ -15,7 +15,7 @@ const playersArray = JSON.parse(playersArrayJson)
 const winner = document.getElementById("fp-header")
 const scoreBox = document.getElementById("fp-score-box")
 const detailsBtn = document.getElementById("fp-details-btn")
-
+const replayBtn = document.getElementById("fp-replay-btn")
 
 //CREATE TOTALS AND ORDER PLAYERS BY TOTALS
 let playersWithTotalArray = []
@@ -58,9 +58,14 @@ const displaySummary = () => {
             </tr>
         `
         rank++
-    })
-    
+    })   
 }
+
+//REPLAY
+replayBtn.addEventListener("click", () => {
+    localStorage.clear()
+    window.location.replace('./index.html')
+})
 
 //DETAILED SCOREBOARD TOGGLE
 detailsBtn.addEventListener("click", () => {
@@ -108,8 +113,7 @@ detailsBtn.addEventListener("click", () => {
                 </tr>
             `
             detailRank++
-        })
-        
+        }) 
     }
 })
 
