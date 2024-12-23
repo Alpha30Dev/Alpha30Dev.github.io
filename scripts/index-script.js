@@ -42,6 +42,7 @@ class IndexPageClass {
         });
         playersJson += "]";
         localStorage.setItem("t2p-players", playersJson);
+        window.location.href = '/snake.html';
     }
     removeSpecialChars (text) {
         return text.replace(/[&<>"']/g, "");
