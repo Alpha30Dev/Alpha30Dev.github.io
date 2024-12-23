@@ -14,36 +14,7 @@ let food = {
     x: Math.floor(Math.random() * (canvas.width/box)) * box,
     y: Math.floor(Math.random() * (canvas.height/box)) * box
 }
-// //test
-// let players = [
-//     {
-//         name: "Connor",
-//         wordleScore: 0,
-//         hangmanScore: 0,
-//         snakeScore: 0,
-//         minesweeperScore: 0,
-//         game2048: 0, 
-//     },
-//     {
-//         name: "Soukaina",
-//         wordleScore: 0,
-//         hangmanScore: 0,
-//         snakeScore: 0,
-//         minesweeperScore: 0,
-//         game2048: 0, 
-//     },
-//     {
-//         name: "Thomas",
-//         wordleScore: 0,
-//         hangmanScore: 0,
-//         snakeScore: 0,
-//         minesweeperScore: 0,
-//         game2048: 0, 
-//     },
-// ]
 
-// localStorage.setItem("t2p-players", JSON.stringify(players))
-//test
 let score = 0
 let d
 let seconds = 59
