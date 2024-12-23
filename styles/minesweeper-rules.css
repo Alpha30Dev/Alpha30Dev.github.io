@@ -1,0 +1,5 @@
+.screen {
+    background-color: var(--tap2play-white);
+    padding: 30px;
+    box-sizing: border-box;
+}

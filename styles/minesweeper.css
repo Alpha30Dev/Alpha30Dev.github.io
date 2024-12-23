@@ -1,0 +1,142 @@
+.display {
+    position: relative;
+    flex: 1;
+    background-color: var(--tap2play-light-gray);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(100% - 30px);
+}
+
+.mine {
+    width: 50%;
+}
+.flag {
+    width: 50%;
+    filter: brightness(0) saturate(100%) invert(20%) sepia(91%) saturate(6625%) hue-rotate(118deg) brightness(100%) contrast(102%);
+}
+
+.minesweeper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    max-width: 100%;
+}
+.minesweeper-infos {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-weight: bold;
+    font-size: 24px;
+    gap: 10px;
+    padding: 8px;
+    box-sizing: border-box;
+    background-color: var(--tap2play-white);
+    width: 100%;
+}
+#flagCount {
+    width: 50%;
+    text-align: center;
+}
+.minesweeper-icon {
+    height: 40px;
+}
+#tilesContainer {
+    display: grid;
+    grid-template-columns: repeat(10 ,1fr);
+    width: 100%;
+}
+.tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+    aspect-ratio: 1/1;
+
+    font-weight: bold;
+
+    background-color: var(--tap2play-light-gray);
+    box-shadow: inset 1px 1px 0px 2px var(--tap2play-white), inset -2px -2px 0px 2px var(--tap2play-blue);
+}
+.tile:hover {
+    background-color: var(--tap2play-white);
+}
+.clicked {
+    background-color: var(--tap2play-white);
+    box-shadow: none;
+    border: var(--tap2play-light-gray) dotted;
+}
+
+.minesweeper-button {
+    background-color: var(--tap2play-red);
+    color: var(--tap2play-white);
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px;
+    border: none;
+    margin-top: 30px;
+    text-decoration: none;
+}
+.minesweeper-button:hover {
+    background-color: var(--tap2play-dark-red);
+    cursor: pointer;
+}
+
+.minesweeper-window {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 30px;
+    font-size: 24px;
+    font-weight: bold;
+
+    background-color: var(--tap2play-light-gray);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: inset 1px 1px 0px 2px var(--tap2play-white), inset -2px -2px 0px 2px var(--tap2play-blue);
+    min-width: 256px;
+}
+
+.player-list-row{
+    display: flex;
+    box-sizing: border-box;
+    padding: 10px;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+}
+.player-list-row:nth-child(odd){
+    background-color: var(--tap2play-white);
+}
+.player-list-row > span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    height: 100%;
+}
+.player-list-row > span:last-child{
+    justify-content: end;
+}
+.player-list-row > span:first-child{
+    justify-content: start;
+}
+
+@media (min-width: 768px) {
+    .minesweeper {
+        height: 100%;
+        aspect-ratio: 1/1;
+        width: auto;
+    }
+    #tilesContainer {
+        flex: 1;
+        aspect-ratio: 1/1;
+        width: auto;
+    }
+}
