@@ -64,6 +64,7 @@ class PlayerList {
         let newIndex = this.list.length;
         let newRow = document.createElement("div");
         let newButton = document.createElement("button");
+        newButton.className = "index-element";
 
         this.playerCounter.textContent = newIndex + 1;
 
