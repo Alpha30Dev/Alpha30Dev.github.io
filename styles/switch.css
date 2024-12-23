@@ -82,7 +82,7 @@ main {
 
 /* header footer */
 
-button {
+footer button {
     width: 260px;
     height: 40px;
     background-color: var(--tap2play-red);
@@ -101,15 +101,7 @@ button:hover {
 button.blue-button:hover {
     background-color: var(--tap2play-dark-blue);
 }
-input {
-    height: 60px;
-    border: var(--tap2play-blue) 2px solid;
-    font-size: 1.4em;
-    margin: 8px;
-    padding-left: 10px;
-    flex: 1;
-    box-sizing: border-box;
-}
+
 input:focus {
    outline: none;
 }
