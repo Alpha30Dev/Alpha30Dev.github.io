@@ -1,3 +1,37 @@
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2B2D42;
+    padding: 10px;
+}
+
+.logo-center img,
+.logo-left img {
+    height: 100px;
+}
+
+.logo-center {
+    flex: 1;
+    text-align: center;
+    color: white; 
+    margin-right: 180px;
+}
+
+@media (max-width: 768px) {
+    .logo-center {
+        display: none; 
+    }
+
+    .logo-left {
+        margin: 0 auto;
+        flex-grow: 1;
+        text-align: center;
+    }
+}
+
+
 main {
     background-color: var(--tap2play-white);
     padding: 10px;
@@ -47,9 +81,9 @@ main {
 }
 
 #message {
-    margin-top: 25px;
+    margin-top: 22px;
     font-weight: bold;
-    padding: 15px;
+    padding: 20px;
 }
 
 #hangmanImage {
