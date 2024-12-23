@@ -40,7 +40,7 @@ async function startGame() {
     try {
         // Vérification si tous les joueurs ont joué
         if (currentPlayer >= players.length) {
-            window.location.replace("2048.html"); // Redirection vers une autre page
+            window.location.replace("endpage.html"); // Redirection vers une autre page
         }
         if (inGame) return; // Si le jeu est déjà en cours, ne rien faire
         await loadWords(); // Chargement des mots
