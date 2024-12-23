@@ -14,35 +14,35 @@ let food = {
     x: Math.floor(Math.random() * (canvas.width/box)) * box,
     y: Math.floor(Math.random() * (canvas.height/box)) * box
 }
-//test
-let players = [
-    {
-        name: "Connor",
-        wordleScore: 0,
-        hangmanScore: 0,
-        snakeScore: 0,
-        minesweeperScore: 0,
-        game2048: 0, 
-    },
-    {
-        name: "Soukaina",
-        wordleScore: 0,
-        hangmanScore: 0,
-        snakeScore: 0,
-        minesweeperScore: 0,
-        game2048: 0, 
-    },
-    {
-        name: "Thomas",
-        wordleScore: 0,
-        hangmanScore: 0,
-        snakeScore: 0,
-        minesweeperScore: 0,
-        game2048: 0, 
-    },
-]
+// //test
+// let players = [
+//     {
+//         name: "Connor",
+//         wordleScore: 0,
+//         hangmanScore: 0,
+//         snakeScore: 0,
+//         minesweeperScore: 0,
+//         game2048: 0, 
+//     },
+//     {
+//         name: "Soukaina",
+//         wordleScore: 0,
+//         hangmanScore: 0,
+//         snakeScore: 0,
+//         minesweeperScore: 0,
+//         game2048: 0, 
+//     },
+//     {
+//         name: "Thomas",
+//         wordleScore: 0,
+//         hangmanScore: 0,
+//         snakeScore: 0,
+//         minesweeperScore: 0,
+//         game2048: 0, 
+//     },
+// ]
 
-localStorage.setItem("t2p-players", JSON.stringify(players))
+// localStorage.setItem("t2p-players", JSON.stringify(players))
 //test
 let score = 0
 let d
@@ -57,6 +57,8 @@ const timeDisplay = document.querySelector('.top-screen span:nth-child(2)');
 document.addEventListener("keydown", direction);
 
 let timerStarted = false;
+
+const players = JSON.parse(localStorage.getItem("t2p-players"));
 
 function direction(event){
     event.preventDefault();
@@ -95,15 +97,15 @@ function updatePlayerDisplay() {
 }
 
 function saveScoreAndNextPlayer() {
-    // Sauvegarde du score temporaire
-    let tempScore = score;
+    // Sauvegarder le score temporaire
+    players[currentPlayerIndex].tempSnakeScore = score;
     
     // Si c'est le dernier joueur, calculer les points finaux pour tous
     if (currentPlayerIndex === players.length - 1) {
         // Créer un tableau temporaire avec les scores et les indices
         let tempScores = players.map((player, index) => ({
             index: index,
-            score: player.snakeScore
+            score: player.tempSnakeScore || 0
         }));
         
         // Trier les scores du plus haut au plus bas
@@ -119,27 +121,19 @@ function saveScoreAndNextPlayer() {
                 points = players.length - (position - 1);
             }
             
-            // Remplacer le score par les points
+            // Mettre à jour le score Snake dans le format attendu par endPage
             players[item.index].snakeScore = points;
         });
+        
+        // Sauvegarder dans localStorage et rediriger
+        localStorage.setItem("t2p-players", JSON.stringify(players));
+        window.location.href = '/wordle.html';
     } else {
-        // Sauvegarder le score temporaire pour la comparaison finale
-        players[currentPlayerIndex].snakeScore = tempScore;
+        // Passage au joueur suivant
+        currentPlayerIndex++;
+        resetGame();
+        localStorage.setItem("t2p-players", JSON.stringify(players));
     }
-    
-    localStorage.setItem("t2p-players", JSON.stringify(players));
-    
-    // Passage au joueur suivant
-    currentPlayerIndex++;
-    
-    if (currentPlayerIndex >= players.length) {
-        // Fin du jeu - tous les joueurs ont joué
-        window.location.href = '/endPage.html';
-        return;
-    }
-    
-    // Reset pour le prochain joueur
-    resetGame();
 }
 
 let timerInterval;
