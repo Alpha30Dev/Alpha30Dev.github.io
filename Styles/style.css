@@ -23,7 +23,7 @@ body > * {
     width: 100%;
 }
 
-button {
+button.index-element {
     width: 260px;
     height: 60px;
     background-color: var(--tap2play-red);
@@ -36,14 +36,14 @@ button {
 button.blue-button {
     background-color: var(--tap2play-blue);
 }
-button:hover {
+button.index-element:hover {
     background-color: var(--tap2play-dark-red);
     cursor: pointer;
 }
 button.blue-button:hover {
     background-color: var(--tap2play-dark-blue);
 }
-input {
+input.index-element {
     height: 60px;
     border: var(--tap2play-blue) 2px solid;
     font-size: 1.4em;
@@ -52,7 +52,7 @@ input {
     flex: 1;
     box-sizing: border-box;
 }
-:focus {
+.index-element:focus {
    outline: 3px solid var(--tap2play-orange);
 }
 
