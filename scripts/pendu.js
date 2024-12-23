@@ -1,34 +1,3 @@
-// Déclaration d'un tableau de joueurs avec leurs scores initiaux
-let playersTest = [
-    {
-        name: "Connor",
-        wordleScore: 0,
-        hangmanScore: 0,
-        snakeScore: 0,
-        minesweeperScore: 0,
-        game2048: 0, 
-    },
-    {
-        name: "Soukaina",
-        wordleScore: 0,
-        hangmanScore: 0,
-        snakeScore: 0,
-        minesweeperScore: 0,
-        game2048: 0,  
-    },
-    {
-        name: "Thomas",
-        wordleScore: 0,
-        hangmanScore: 0,
-        snakeScore: 0,
-        minesweeperScore: 0,
-        game2048: 0, 
-    },
-]
-
-// Enregistrement des joueurs dans le stockage local
-localStorage.setItem("t2p-players", JSON.stringify(playersTest))
-
 // Variables pour gérer l'état du jeu
 let ticker; // Pour le compte à rebours
 let inGame = false; // Indique si le jeu est en cours
